@@ -1,0 +1,149 @@
+{
+  "type_map": ["Li", "Mn", "O"],
+  "mass_map": [6.9, 54.9, 16.0],
+  "init_data_prefix":"/mnt/c/Users/74428/Desktop/DPMD_Trainning/vasp_train/dp-train",
+  "init_data_sys": [
+  ],
+  "sys_configs":[
+    ["./poscars/POSCAR?"],
+    ["./poscars/POSCAR_6"],
+    ["./poscars/POSCAR_12"],
+    ["./poscars/POSCAR_16"],
+    ["./poscars/POSCAR_cluster4Li.vasp"],
+    ["./poscars/POSCAR_cluster6Li.vasp"]
+  ],
+    "_comment": " train",
+    "numb_models": 4,
+    "default_training_param": {
+        "model":{
+            "type_map":[
+                "Li", 
+                "Mn",
+                "O"                
+             ],
+        "descriptor": {
+                "type": "se_e2_a",
+                "sel": "auto",
+                "rcut_smth": 0.5,
+                "rcut": 6.0,
+                "neuron": [
+                    25,
+                    50,
+                    100
+                ],
+                "resnet_dt": false,
+                "precision": "float32",
+                "type_one_side": true,
+                "axis_neuron": 16,
+		"activation_function":"tanh",
+                "seed": 1
+            },
+            "fitting_net": {
+                "neuron": [
+                    180,
+                    180,
+                    180
+                ],
+                "resnet_dt": true,
+		"activation_function":"tanh",
+                "seed": 1
+            }
+        },
+        "learning_rate": {
+            "type": "exp",
+            "start_lr": 4e-3,
+            "stop_lr": 1e-7,
+            "decay_steps": 1000
+        },
+        "loss": {
+            "start_pref_e": 0.2,
+            "limit_pref_e": 20,
+            "start_pref_f": 800,
+            "limit_pref_f": 20,
+            "start_pref_v": 0.02,
+            "limit_pref_v": 1
+        },
+        "training": {
+            "stop_batch": 300000,
+            "disp_file": "lcurve.out",
+            "disp_freq": 1000,
+            "numb_test": 4,
+            "save_freq": 1000,
+            "save_ckpt": "model.ckpt",
+            "disp_training": true,
+            "time_training": true,
+            "profiling": false,
+            "profiling_file": "timeline.json",
+            "_comment": "that's all"
+        }
+    },
+    "model_devi_dt": 0.001,
+    "model_devi_skip": 50,
+    "model_devi_adapt_trust_lo": true,
+    "model_devi_f_trust_lo": 0.1,
+    "model_devi_perc_candi_f":10,
+    "model_devi_f_trust_hi": 0.5,
+    "model_devi_e_trust_lo": 10000000000.0,
+    "model_devi_e_trust_hi": 10000000000.0,
+    "model_devi_clean_traj": true,
+    "model_devi_jobs": [
+    {"_idx": 0, "ensemble": "nvt", "nsteps": 2000, "sys_idx": [0], "temps": [600],"trj_freq": 20},
+    {"_idx": 1, "ensemble": "nvt", "nsteps": 3000, "sys_idx": [0], "temps": [600],"trj_freq": 30},
+    {"_idx": 2, "ensemble": "nvt", "nsteps": 3000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 3, "ensemble": "nvt", "nsteps": 4000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 4, "ensemble": "nvt", "nsteps": 4000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 5, "ensemble": "nvt", "nsteps": 5000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 6, "ensemble": "nvt", "nsteps": 5000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 7, "ensemble": "nvt", "nsteps": 6000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 8, "ensemble": "nvt", "nsteps": 6000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 9, "ensemble": "nvt", "nsteps": 7000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 10, "ensemble": "nvt", "nsteps": 8000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 11, "ensemble": "nvt", "nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 12, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 13, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 80},
+    {"_idx": 14, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 30},
+    {"_idx": 15, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 30},
+    {"_idx": 16, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 30},
+    {"_idx": 17, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 18, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 19, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 20, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 21, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 22, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0], "temps": [600],"trj_freq": 50},
+    {"_idx": 23, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [600],"trj_freq": 50},
+    {"_idx": 24, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [600],"trj_freq": 50},
+    {"_idx": 25, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [600],"trj_freq": 50},
+    {"_idx": 26, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [600],"trj_freq": 50},
+    {"_idx": 27, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [600],"trj_freq": 50},
+    {"_idx": 28, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 50},
+    {"_idx": 29, "ensemble": "npt", "press": [-1,0,1],"nsteps": 9000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 50},
+    {"_idx": 30, "ensemble": "npt", "press": [-1,0,1],"nsteps": 20000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 50},
+    {"_idx": 31, "ensemble": "npt", "press": [-1,0,1],"nsteps": 50000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 50},
+    {"_idx": 32, "ensemble": "npt", "press": [-1,0,1],"nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 50},
+    {"_idx": 33, "ensemble": "npt", "press": [-1,0,1],"nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 34, "ensemble": "npt", "press": [-1,0,1],"nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 36, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 37, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 38, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 39, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 40, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 41, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [0,1,2,3], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 42, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 43, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 44, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600,900],"trj_freq": 30},
+    {"_idx": 45, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600],"trj_freq": 30},
+    {"_idx": 46, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600],"trj_freq": 30},
+    {"_idx": 57, "ensemble": "nvt", "nsteps": 100000, "sys_idx": [4,5], "temps": [300,600],"trj_freq": 30}
+        ],
+    "fp_style": "vasp",
+    "shuffle_poscar": false,
+    "fp_task_max": 50,
+    "fp_task_min": 1,
+    "fp_pp_path": "./",
+    "fp_pp_files": [
+    "POTCAR_Li_sv",
+    "POTCAR_Mn_pv",
+    "POTCAR_O"
+    ],
+     "fp_incar": "./INCAR_scf"
+}
