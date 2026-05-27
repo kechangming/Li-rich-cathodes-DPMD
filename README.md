@@ -22,7 +22,7 @@ This repository provides the Deep Potential model, training dataset, DP-GEN inpu
 - **last_MDs.tar.gz**  
   Molecular dynamics runs from the final DP-GEN iteration.
 
-  - **Trajectory files**
+- **Trajectory files**
 
 The trajectory files generated in this work are provided as release assets due to their file size.
 
