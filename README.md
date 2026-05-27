@@ -24,13 +24,13 @@ This repository provides the Deep Potential model, training dataset, DP-GEN inpu
 
 - **Trajectory files**
 
-The trajectory files generated in this work are provided as release assets due to their file size.
+  The trajectory files generated in this work are provided as release assets due to their file size.
 
-They can be downloaded from the GitHub Releases page:
+  They can be downloaded from the GitHub Releases page:
 
-[Download trajectory files](https://github.com/kechangming/Li-rich-cathodes-DPMD/releases/latest)
+  [Download trajectory files](https://github.com/kechangming/Li-rich-cathodes-DPMD/releases/latest)
 
-The release contains the trajectory files associated with the Li-rich cathode DPMD simulations.
+  The release contains the trajectory files associated with the Li-rich cathode DPMD simulations.
 
 ## Notes
 
